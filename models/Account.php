@@ -128,7 +128,7 @@ class Account extends ActiveRecord
         }
 
         if (($user = static::fetchUser($account)) instanceof User) {
-            $account->user_id = $user->id;
+           $account->connect($user);
         }
 
         $account->save(false);
